@@ -4,7 +4,9 @@ import android.annotation.SuppressLint
 import android.annotation.TargetApi
 import android.app.Activity
 import android.content.ClipData
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.net.Uri
@@ -46,12 +48,15 @@ class WebViewActivity : BaseActivity(), AdvancedWebView.Listener {
     val PERMISSION_CODE = 1000
     var size: Long = 0
 
+    lateinit var prefs: SharedPreferences
 
     override fun getContentView(): Int = R.layout.activity_web_view
 
     override fun initUI() {
         webView = web_view
         progressBar = progress_bar
+
+        prefs = getSharedPreferences("com.love.happiness", Context.MODE_PRIVATE)
     }
 
     private var conversions: MutableList<Conversion> = mutableListOf()
@@ -281,5 +286,12 @@ class WebViewActivity : BaseActivity(), AdvancedWebView.Listener {
     }
 
     override fun onPageStarted(url: String?, favicon: Bitmap?) {
+    }
+
+    override fun onStop() {
+        super.onStop()
+
+        prefs.edit().putString("endurl", webView.url).apply()
+
     }
 }

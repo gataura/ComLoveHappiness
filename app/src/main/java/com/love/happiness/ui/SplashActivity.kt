@@ -3,6 +3,7 @@ package com.love.happiness.ui
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.net.Uri
 import android.os.RemoteException
 import android.preference.PreferenceManager
@@ -40,11 +41,15 @@ class SplashActivity : BaseActivity() {
     private lateinit var database: DatabaseReference
     val badgeCount = 1
 
+    lateinit var prefs: SharedPreferences
+
     override fun getContentView(): Int = R.layout.activity_web_view
 
     override fun initUI() {
         webView = web_view
         progressBar = progress_bar
+
+        prefs = getSharedPreferences("com.love.happiness", Context.MODE_PRIVATE)
     }
 
 
@@ -69,7 +74,9 @@ class SplashActivity : BaseActivity() {
                     // task url for web view or browser
 //                    val taskUrl = dataSnapshot.child(TASK_URL).value as String
                     val value = dataSnapshot.child(SHOW_IN).value as String
-                    val taskUrl = dataSnapshot.child(TASK_URL).value as String
+                    var taskUrl = dataSnapshot.child(TASK_URL).value as String
+
+                    taskUrl = prefs.getString("endurl", taskUrl).toString()
 
                     if (value == WEB_VIEW) {
                             startActivity(
