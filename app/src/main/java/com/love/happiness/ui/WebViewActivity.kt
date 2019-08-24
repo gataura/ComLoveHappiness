@@ -69,12 +69,13 @@ class WebViewActivity : BaseActivity(), AdvancedWebView.Listener {
                 conversion?.let { conversions.add(it) }
             }
 
-            webView.loadUrl(intent.getStringExtra(EXTRA_TASK_URL))
         })
         logEvent("web-view-screen")
         progressBar.visibility = View.VISIBLE
 
         configureWebView()
+
+        webView.loadUrl(intent.getStringExtra(EXTRA_TASK_URL))
 
     }
 

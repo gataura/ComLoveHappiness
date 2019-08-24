@@ -127,7 +127,6 @@ class SplashActivity : BaseActivity() {
         getValuesFromDatabase({
             dataSnapshot = it
 
-
             // load needed url to determine if user is suitable
             webView.loadUrl(it.child(SPLASH_URL).value as String)
         }, {
