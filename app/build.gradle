@@ -4,6 +4,8 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'io.fabric'
+
 android {
     compileSdkVersion 29
     defaultConfig {
@@ -53,16 +55,25 @@ dependencies {
     //Image Picker Library for Android
     implementation 'com.myhexaville:smart-image-picker:1.0.4'
 
+    // Check for v11.4.2 or higher
+    implementation 'com.google.firebase:firebase-core:17.1.0'
+
+    // (Recommended) Add Analytics
+    implementation 'com.google.firebase:firebase-analytics:17.1.0'
+
+    // Add dependency
+    implementation 'com.crashlytics.sdk.android:crashlytics:2.10.1'
+
     // Firebase
-    implementation 'com.google.firebase:firebase-core:16.0.8'
-    implementation 'com.google.firebase:firebase-config:16.4.0'
-    implementation 'com.google.firebase:firebase-database:16.0.1'
-    implementation 'com.google.firebase:firebase-messaging:17.5.0'
-    implementation 'com.google.firebase:firebase-dynamic-links:16.1.8'
+    implementation 'com.google.firebase:firebase-core:17.1.0'
+    implementation 'com.google.firebase:firebase-config:19.0.0'
+    implementation 'com.google.firebase:firebase-database:19.0.0'
+    implementation 'com.google.firebase:firebase-messaging:20.0.0'
+    implementation 'com.google.firebase:firebase-dynamic-links:19.0.0'
 
     implementation 'androidx.browser:browser:1.0.0-beta01'
 
-    implementation 'com.google.android.gms:play-services-analytics:16.0.8'
+    implementation 'com.google.android.gms:play-services-analytics:17.0.0'
 
 
     implementation 'com.android.installreferrer:installreferrer:1.0'

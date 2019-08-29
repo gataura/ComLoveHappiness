@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
+import com.crashlytics.android.Crashlytics;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
@@ -35,6 +36,8 @@ public class TheStartingActivity extends AppCompatActivity implements View.OnCli
         setContentView(R.layout.activity_the_starting);
         initView();
         myCallbackManager = CallbackManager.Factory.create();
+
+
 
 
     }
