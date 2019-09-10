@@ -16,7 +16,7 @@ import java.io.IOException;
 public final class AllImgs {
     static void saveToInternalStorage(Context context, ImageView image, long prefix) {
 
-        Bitmap bitmap = ((BitmapDrawable) image.getDrawable()).getBitmap();
+        Bitmap bitmap = Bitmap.createBitmap(((BitmapDrawable) image.getDrawable()).getBitmap());
         ContextWrapper cw = new ContextWrapper(context);
         // path to /data/data/yourapp/app_data/imageDir
         File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
